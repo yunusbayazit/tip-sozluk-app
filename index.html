@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Sozluk - Tibbi Terimler Sozlugu</title>
+    <meta name="description" content="20.000+ tibbi terimin Turkce aciklamasi, etimolojisi ve kategorileri. Tip ogrencileri ve saglik profesyonelleri icin.">
+    <meta name="keywords" content="tip sozluk, tibbi terimler, medikal sozluk, tip egrencisi, saglik, anatomi">
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tip Sozluk - Tibbi Terimler Sozlugu">
+    <meta property="og:description" content="20.000+ tibbi terimin Turkce aciklamasi. Tip ogrencileri ve saglik profesyonelleri icin.">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1976D2;
+            --primary-dark: #1565C0;
+            --secondary: #3B82F6;
+            --bg-light: #F8FAFC;
+            --text-dark: #1F2937;
+            --text-gray: #6B7280;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            font-size: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .subtitle {
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: white;
+            color: var(--primary);
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+        }
+
+        .download-btn svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: var(--text-dark);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* Categories Section */
+        .categories {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .categories-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .categories h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .category-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .category-tag {
+            background: var(--bg-light);
+            color: var(--text-dark);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            border: 1px solid #E5E7EB;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-disclaimer {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.7;
+        }
+
+        .copyright {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero .subtitle {
+                font-size: 18px;
+            }
+
+            .stats {
+                gap: 25px;
+            }
+
+            .stat-number {
+                font-size: 28px;
+            }
+
+            .features h2,
+            .categories h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="app-icon">&#9764;</div>
+            <h1>Tip Sozluk</h1>
+            <p class="subtitle">Tibbi Terimler Sozlugu</p>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">20.000+</span>
+                    <span class="stat-label">Tibbi Terim</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Kategori</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Ucretsiz</span>
+                </div>
+            </div>
+
+            <a href="https://apps.apple.com/app/tip-sozluk/id0000000000" class="download-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                </svg>
+                App Store'dan Indir
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Ozellikler</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">&#128269;</div>
+                <h3>Hizli Arama</h3>
+                <p>Anlık arama ile binlerce terim arasından saniyeler içinde istediginizi bulun.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127908;</div>
+                <h3>Sesli Arama</h3>
+                <p>Mikrofon ile konusarak terim arayin. Eller serbest kullanim icin ideal.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128218;</div>
+                <h3>Detayli Aciklamalar</h3>
+                <p>Her terimin etimolojisi, tanimi ve kullanim alani hakkinda detayli bilgi.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#11088;</div>
+                <h3>Favoriler</h3>
+                <p>Sik kullandiginiz terimleri favorilere ekleyerek hizla erisin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#128336;</div>
+                <h3">Arama Gecmisi</h3>
+                <p>Onceki aramalariniza kolayca donun. Calisma gecmisinizi takip edin.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">&#127769;</div>
+                <h3>Karanlik Mod</h3>
+                <p>Goz yorgunlugunu azaltan karanlik tema ile gece calismalari icin ideal.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="categories-content">
+            <h2>Kategoriler</h2>
+            <div class="category-tags">
+                <span class="category-tag">Anatomi</span>
+                <span class="category-tag">Fizyoloji</span>
+                <span class="category-tag">Patoloji</span>
+                <span class="category-tag">Farmakoloji</span>
+                <span class="category-tag">Kardiyoloji</span>
+                <span class="category-tag">Noroloji</span>
+                <span class="category-tag">Gastroenteroloji</span>
+                <span class="category-tag">Endokrinoloji</span>
+                <span class="category-tag">Hematoloji</span>
+                <span class="category-tag">Onkoloji</span>
+                <span class="category-tag">Dermatoloji</span>
+                <span class="category-tag">Ortopedi</span>
+                <span class="category-tag">Pediatri</span>
+                <span class="category-tag">Jinekoloji</span>
+                <span class="category-tag">Uroloji</span>
+                <span class="category-tag">Oftalmoloji</span>
+                <span class="category-tag">Psikiyatri</span>
+                <span class="category-tag">Radyoloji</span>
+                <span class="category-tag">Mikrobiyoloji</span>
+                <span class="category-tag">Immunoloji</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="privacy.html">Gizlilik Politikasi</a>
+                <a href="mailto:yunusbayazit@gmail.com">Iletisim</a>
+            </div>
+            <p class="footer-disclaimer">
+                Bu uygulama yalnizca egitim amaçlidir. Icerdigi bilgiler profesyonel tibbi tavsiye, teshis veya tedavi yerine gecmez. Sagliginizla ilgili konularda daima bir saglik profesyoneline danisin.
+            </p>
+            <p class="copyright">&copy; 2025 Tip Sozluk. Tum haklari saklidir.</p>
+        </div>
+    </footer>
+</body>
+</html>
